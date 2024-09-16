@@ -1,28 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NewsPage from './pages/NewsPage';
+import AdminLogin from './pages/AdminLogin';
+import AdminPanel from './pages/AdminPanel';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hola Mundo!!!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<NewsPage />} />
+                <Route path="/admin" element={<AdminLogin />} />
+                <Route path="/admin/panel" element={<AdminPanel />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
